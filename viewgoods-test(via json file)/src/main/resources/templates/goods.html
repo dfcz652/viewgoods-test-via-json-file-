@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Goods</title>
+    <link href="/css/bootstrap.css" type="text/css" rel="stylesheet" />
+    <script src="/js/jquery-3.1.0.min.js" ></script>
+    <script src="/js/bootstrap.min.js" ></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Список товарів в магазинах</h1>
+        <table class="table table-striped table-fixed">
+            <thead>
+                <th class="text-center">Id</th>
+                <th class="text-center">Barcode</th>
+                <th class="text-center">Name</th>
+                <th class="text-center">Price In The Shop 1</th>
+                <th class="text-center">Remnant In The Shop 1</th>
+                <th class="text-center">Price In The Shop 2</th>
+                <th class="text-center">Remnant In The Shop 2</th>
+                <th class="text-center">Price In The Shop 3</th>
+                <th class="text-center">Remnant In The Shop 3</th>
+<!--                <th>Shop ID</th>-->
+            </thead>
+            <tbody>
+                <tr th:each="good : ${goodsList}">
+                    <td th:text="${good.get('goods_id')}" class="text-center"></td>
+                    <td th:text="${good.get('goods_barcode')}" class="text-center"></td>
+                    <td th:text="${good.get('goods_name')}" class="text-center"></td>
+                    <td th:text="${good.get('shop_price1')}" class="text-center"></td>
+                    <td th:text="${good.get('shop_remnant1')}" class="text-center"></td>
+                    <td th:text="${good.get('shop_price2')}" class="text-center"></td>
+                    <td th:text="${good.get('shop_remnant2')}" class="text-center"></td>
+                    <td th:text="${good.get('shop_price3')}" class="text-center"></td>
+                    <td th:text="${good.get('shop_remnant3')}" class="text-center"></td>
+<!--                    <td th:text="${good.shopId}"></td>-->
+<!--                    <td>-->
+<!--                        <a th:href="@{/delete/{id}(id=${good.getGoodsId()})}">-->
+<!--                            <button type="button" class="btn-primary">Видалити</button>-->
+<!--                        </a>-->
+<!--                    </td>-->
+<!--                    <td>-->
+<!--                        <a th:href="@{/updateGood/{id}(id=${good.getGoodsId()})}" th:object="${good}">-->
+<!--&lt;!&ndash;                        <a th:href="@{/updateGood}" th:object="${good}">&ndash;&gt;-->
+<!--                        <button type="button" class="btn-primary">Редагувати</button>-->
+<!--                        </a>-->
+<!--                    </td>-->
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

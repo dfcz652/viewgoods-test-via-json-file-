@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Створити товар</title>
+</head>
+<body>
+
+<form th:method="POST" th:action="@{/create product}" th:object="${good}">
+    <label for="barcode">Enter barcode: </label>
+    <input type="text" th:field="*{barcode}" id="barcode"/>
+    <div style="color:red" th:if="${#fields.hasErrors('barcode')}" th:errors="*{barcode}">Barcode Error</div>
+    <label for="name">Enter name: </label>
+    <input type="text" th:field="*{name}" id="name"/>
+    <div style="color:red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</div>
+    <label for="price">Enter price: </label>
+    <input type="text" th:field="*{price}" id="price"/>
+    <div style="color:red" th:if="${#fields.hasErrors('price')}" th:errors="*{price}">Price Error</div>
+    <label for="remnant">Enter remnant: </label>
+    <input type="number" th:field="*{remnant}" id="remnant"/>
+    <div style="color:red" th:if="${#fields.hasErrors('remnant')}" th:errors="*{remnant}">Remnant Error</div>
+    <label for="shopId">Enter Shop ID: </label>
+    <input type="text" th:field="*{shopId}" id="shopId"/>
+    <div style="color:red" th:if="${#fields.hasErrors('shopId')}" th:errors="*{shopId}">ShopId Error</div>
+    <input type="submit" value="Create!"/>
+</form>
+
+</body>
+</html>
